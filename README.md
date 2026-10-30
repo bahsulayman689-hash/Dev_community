@@ -37,3 +37,43 @@ By building **AgriGuard-Open** on open-source frameworks and self-hosted inferen
 ## Technical Architecture & How It Works
 
 **AgriGuard-Open** couples a high-reactivity Streamlit frontend directly with local Python analytical pipelines.
+### Key Technologies Used
+
+* **Frontend & Application Server:** [Streamlit](https://streamlit.io/) (Python)
+* **Computer Vision & Processing:** Pillow (PIL), NumPy, OpenCV
+* **Data Visualization & Telemetry:** Pandas, Plotly Express
+* **AI & Inference Engine:** PyTorch / Ollama Local Runtime (Gemma 2 open weights)
+
+---
+
+## Key Features
+
+### 1. 🌿 Instant Crop Pathology & Local AI Feedback
+Users upload photos of infected leaves. The local vision pipeline normalizes spectral properties, classifies anomalies with high confidence scores, and triggers an interactive **Local AI Expert Feedback** block providing step-by-step organic treatment protocols.
+
+### 2. 🧪 Soil Suitability & Local Knowledge RAG
+Allows field workers to input soil composition (pH, moisture, soil type) and query an offline knowledge base using local Retrieval-Augmented Generation (RAG) to recommend optimal crop rotation and fertilization strategies.
+
+### 3. 📊 Seasonal Yield Forecasting
+Integrates historical weather metrics and simulated open telemetry to plot multi-week crop yields against historical baselines using interactive line charts.
+
+---
+
+## Challenges Overcome & Lessons Learned
+
+* **Challenge:** Ensuring real-time image analysis feedback without causing UI lag in Streamlit.
+* **Solution:** Implemented local image caching and optimized tensor preprocessing so inference executes smoothly on standard CPU hardware.
+* **Challenge:** Maintaining state across multi-tab workflows.
+* **Solution:** Leveraged Streamlit's native `st.session_state` to seamlessly pass soil parameters and diagnostic history between the pathology detector and the yield forecasting dashboard.
+
+---
+
+## Future Roadmap
+
+- [ ] Integrate edge-device camera support for mobile web browsers
+- [ ] Add offline SQLite synchronization for long-term field data logging
+- [ ] Support multilingual voice queries using open-source speech models
+
+---
+
+*Built with passion for Hacktoberfest 2026. Special thanks to DEV and the open-source community for driving open innovation!*
